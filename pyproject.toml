@@ -1,7 +1,7 @@
 [project]
 name = "quest"
 version = "0.1.0"
-description = "QUEST: fork of: QUEST: orbital topology generation (fork of OpenFogStack Celestial) with pyproject.toml"
+description = "QUEST: orbital topology generation (fork of OpenFogStack Celestial)"
 readme = "README.md"
 license = "GPL-3.0-only"
 license-files = ["LICENSE"]
@@ -17,9 +17,8 @@ dependencies = [
 animation = ["vtk>=9.3", "seaborn>=0.13"]
 
 [build-system]
-requires = ["uv_build>=0.13.6,<0.14.0"]
-build-backend = "uv_build"
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
 
-[tool.uv.build-backend]
-module-name = "celestial"   # the import name; differs from the project name "quest"
-module-root = ""            # the package sits at the repo root, not under src/
+[tool.hatch.build.targets.wheel]
+packages = ["celestial"]
